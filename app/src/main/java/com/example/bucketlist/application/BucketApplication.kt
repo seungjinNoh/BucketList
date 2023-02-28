@@ -2,8 +2,10 @@ package com.example.bucketlist.application
 
 import android.app.Application
 import com.example.bucketlist.BuildConfig
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
+@HiltAndroidApp
 class BucketApplication : Application() {
 
     override fun onCreate() {
