@@ -9,7 +9,9 @@ import com.example.bucketlist.R
 import com.example.bucketlist.base.BaseFragment
 import com.example.bucketlist.databinding.FragmentMainBinding
 import com.example.bucketlist.viewmodel.WorkViewModel
+import com.example.domain.model.WorkEntity
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding, WorkViewModel>(R.layout.fragment_main) {
@@ -25,4 +27,18 @@ class MainFragment : BaseFragment<FragmentMainBinding, WorkViewModel>(R.layout.f
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.testInsert.setOnClickListener {
+            Timber.d("testInsert 클릭")
+            viewModel.insertWork(WorkEntity(
+                "workId1", "title1", "contents1"
+            ))
+        }
+
+        binding.testGet.setOnClickListener {
+            viewModel.getWorkList()
+        }
+    }
 }
