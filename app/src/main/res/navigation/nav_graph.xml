@@ -6,6 +6,19 @@
 
     <fragment
         android:id="@+id/main"
-        android:name="com.example.bucketlist.view.MainFragment"/>
+        android:name="com.example.bucketlist.view.MainFragment">
+        <action
+            android:id="@+id/action_move_update"
+            app:destination="@id/update" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/update"
+        android:name="com.example.bucketlist.view.UpdateFragment">
+
+
+    </fragment>
+
+
 
 </navigation>

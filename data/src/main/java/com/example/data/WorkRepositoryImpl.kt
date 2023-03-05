@@ -17,7 +17,7 @@ class WorkRepositoryImpl(private val workDao: WorkDao) : WorkRepository {
     }
 
     override suspend fun insertWork(workEntity: WorkEntity) {
-        val work = Work(workEntity.workId, workEntity.title, workEntity.contents)
+        val work = Work(workEntity.title, workEntity.contents, workEntity.workId)
         workDao.insert(work = work)
     }
 }
