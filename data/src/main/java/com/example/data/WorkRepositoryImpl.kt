@@ -10,14 +10,14 @@ import kotlinx.coroutines.flow.flow
 class WorkRepositoryImpl(private val workDao: WorkDao) : WorkRepository {
 
     override suspend fun getWorkList(): Flow<List<WorkEntity>> {
-        val list = listOf<WorkEntity>(WorkEntity("testId", "testTitle", "testContents"))
+        val list = listOf<WorkEntity>(WorkEntity("testId", "testTitle"))
         return flow {
             emit(list)
         }
     }
 
     override suspend fun insertWork(workEntity: WorkEntity) {
-        val work = Work(workEntity.title, workEntity.contents, workEntity.workId)
+        val work = Work(workEntity.title, workEntity.contents, null)
         workDao.insert(work = work)
     }
 }

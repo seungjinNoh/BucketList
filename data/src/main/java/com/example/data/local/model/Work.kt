@@ -15,9 +15,9 @@ data class Work(
     val title: String = "",
     @ColumnInfo(name = "contents")
     val contents: String= "",
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = PRIMARY_KEY)
-    val workId: String = ""
+    val id: Long?
 ): Parcelable {
     companion object {
         const val TABLE_NAME= "workTable"
